@@ -1,0 +1,112 @@
+.signUpPanel{
+    position: absolute;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 100%;
+}
+
+/* **************** */
+/* Header */
+
+.signUpHeader{
+    position: relative;
+    width: 100%;
+}
+
+/* Back 2 login page */
+.btnBack2login{
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 1rem; margin-top: 1rem;
+    /* Font */
+    color: #FFF;
+    font-size: 0.8rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btnBack2login:hover{
+    cursor: pointer;
+}
+
+.subSignupHeader{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+
+/* image Avatar */
+.profilePicContainer{
+    display: flex;
+
+    width: 8rem; height: 8rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.profilePicContainer:hover .imgPen{
+    display: block;
+    cursor: pointer;
+}
+
+.imgPen{
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-image: url("../resources/pen.png");
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.avatarImgSignup{
+    width: 100%; height: 100%;
+    background-image: url("../resources/Avatars/bird_main.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 7rem;
+    border-radius: 50%;
+    background-color: rgb(230, 237, 249);
+    filter: drop-shadow(0px 0px 4px rgb(108, 124, 208));
+}
+
+.infoTextImg{
+    width: 6rem;
+    height: 4rem;
+    position: absolute;
+    top: 0; left: 100%;
+}
+/* ******************** */
+
+.welcomeTitle.signup{
+    margin-top: 1rem;
+}
+
+.signupForm{
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+}
+
+.signupInputSection{
+    position: relative;
+    margin-top: 2rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: auto; margin-right: auto;
+}
+
+.createProfileButton{
+    margin-top: 3.5rem;
+    width: 50%;
+    margin-left: auto; margin-right: auto;
+}
+

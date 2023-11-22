@@ -1,0 +1,61 @@
+.customWelcomeInputSection{
+    position: relative;
+    margin: 0; padding: 0;
+}
+
+.customWelcomeInputSection[data-selected = "true"] .inputPlaceHolder,
+.customWelcomeInputSection[data-div-holder="true"] .inputPlaceHolder
+{
+    transition: all 0.1s ease-in-out 0s;
+    font-size: 100%;
+    top: -20%; 
+}
+
+.customWelcomeInputSection[data-selected = "true"] input{
+    border-bottom: solid 2px rgba(108, 124, 208, 1);
+}
+
+.customWelcomeInputSection .inputPlaceHolder{
+    position: absolute;
+    margin: 0; padding: 0;
+    top: 50%; margin-left: 5px;
+    transform: translateY(-70%);
+
+    font-size: var(--welcome--customeInput--font--size, 1rem);
+    color: var(--welcome--customeInput--font--color);
+
+    transition: all 0.1s ease-in-out 0s;
+}
+
+.customWelcomeInputSection input{
+    position: relative;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+
+    /* To prevent overflow */
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    background-color: rgba(0,0,0,0);
+    font-size: var(--welcome--customeInput--font--size, 1rem);
+    
+    border: none; outline: none;
+    border-bottom: solid 2px var(--welcome--customeInput--font--color);
+
+}
+
+.showHideBtn{
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-70%);
+    
+    color: rgb(108, 124, 208);
+    font-size: var(--welcome--customeInput--font--size, 1rem);
+    font-weight: 800;
+
+    /* Prevent selecting text */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}

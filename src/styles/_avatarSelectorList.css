@@ -1,0 +1,67 @@
+.avatarPanel{
+    position: absolute;
+    width: 100%; height: 100%;
+    left: 200%;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatarGridContainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1.2rem;
+    height: 100%;
+    overflow: scroll;
+    justify-content: center;
+    margin-top: 1.2rem;
+    padding: 10px 0;
+    /* background-color: yellow; */
+}
+
+.avatarGridContainer div{
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--clr--main--panel);
+    background-repeat: no-repeat;
+    background-size: 5rem;
+    background-position: center;
+    
+    border-radius: 50%;
+    /* border: 1px ; */
+}
+
+.avatarSelectButton{
+    position: absolute;
+    width: 5rem; height: 5rem;
+    font-size: 3rem;
+    background-color: hsl(230, 52%, 62%);
+    box-shadow: 0px 0px 0px 3px #6C7CD0;
+    border-radius: 1.5rem;
+    text-align: center; vertical-align: middle;
+    margin-left: auto; margin-right: auto;
+    margin-bottom: 2rem;
+
+    background-image: url("../resources/check.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3rem;
+}
+
+.avatarSelectButton:hover{
+    background-color: hsl(230, 52%, 60%);
+    box-shadow: 0px 0px 0px 3px hsl(230, 52%, 60%);
+}
+
+.avatarGridContainer div:hover:not(.avatarSelected) {
+    fill: rgba(230, 237, 249, 0.10);
+    filter: drop-shadow(0px 0px 4px #6C7CD0);
+    -webkit-filter: drop-shadow(0px 0px 4px #6C7CD0);
+}
+
+.avatarSelected{
+    fill: rgba(230, 237, 249, 0.10);
+    filter: drop-shadow(0px 0px 4px #282e4f); 
+    -webkit-filter: drop-shadow(0px 0px 4px #282e4f);
+    
+}
