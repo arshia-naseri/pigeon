@@ -24,7 +24,7 @@ const WelcomeInputButton = ({placeholder, className, type, tabIndex}) =>{
     return(
         <section data-selected="false" data-div-holder="false" ref={inputSectionElm} className={`customWelcomeInputSection ${className}`}>
             <div className="inputPlaceHolder">{placeholder}</div>
-            <input ref={inputRef} type={inputType} onBlur={unselect} onFocus={select} onChange={inputChange} tabIndex={tabIndex}/>
+            <input maxLength={20} ref={inputRef} type={inputType} onBlur={unselect} onFocus={select} onChange={inputChange} tabIndex={tabIndex}/>
             {type === "password"? 
             <div onClick={(e) => {inputType === "password"?setInputType("text"):setInputType("password")}} className="showHideBtn mouseCursorHoverPointer">
                 {inputType === "password"?"SHOW":"HIDE"} 

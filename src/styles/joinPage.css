@@ -50,8 +50,7 @@
     color: rgba(0, 0, 0, 0.90);
 }
 
-.btnWelcomeForm:hover,
-.btnWelcomeForm:focus
+.btnWelcomeForm:hover
 {
     color: rgb(230, 237, 249);
     background: #6C7CD0;
