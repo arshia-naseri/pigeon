@@ -14,10 +14,12 @@ const JoinPage = () => {
     "bird_afro.webp", "bird_french.webp", "dog.webp", "fox.webp", "ghost.webp", "bear.webp", "bee.webp", "cat.webp", "snowman.webp"];
 
     const loginInForm = useRef();
+    const signUpForm = useRef();
     const avatarRef = useRef();
     const avatarListContainer = useRef();
     const [userAvatar,setUserAvatar] = useState("bird_main.webp");
-    const API_URL = "http://localhost:5040/login"
+    const LOGIN_API_URL = "http://localhost:5040/login";
+    const SIGNUP_API_URL = "http://localhost:5040/signup"
 
     const panelContainer = useRef();
     const navigate = useNavigate();
@@ -32,12 +34,48 @@ const JoinPage = () => {
             username: username.value.trim(), 
             password: password.value
         }
-        axios.post(API_URL, data)
+        axios.post(LOGIN_API_URL, data)
             .then(res =>{
-                if(res.data === "user not found") {
-                    alert("User was not found. Try Again"); 
+                const dataType = res.data.substring(0, 2);
+                if(dataType === "m-") {
+                    alert(res.data.slice(2)); 
                     return;
                 }
+                
+                navigate(`/chat?uid=${res.data}`);
+            })
+            .catch(error =>{
+                console.error(error)
+            })
+    }
+
+    const signupFormSubmit = (e) =>{
+        e.preventDefault();
+        
+        const inputs = signUpForm.current.getElementsByTagName("input");
+        const name = inputs[0];
+        const username = inputs[1];
+        const password = inputs[2];
+
+        const data = {
+            avatarPic: userAvatar,
+            name: name.value.trim(),
+            username: username.value.trim(),
+            password: password.value.trim()
+        }
+
+        if(data.name.length < 1){ alert("Name was not entered"); return; }
+        if(data.username.length < 1){ alert("Username was not entered"); return }
+        if(data.password.length < 1){ alert("Password was not entered"); return; }
+
+        axios.post(SIGNUP_API_URL, data)
+            .then(res =>{
+                const dataType = res.data.substring(0, 2);
+                if(dataType === "m-") {
+                    alert(res.data.slice(2)); 
+                    return;
+                }
+                
                 navigate(`/chat?uid=${res.data}`);
             })
             .catch(error =>{
@@ -87,7 +125,7 @@ const JoinPage = () => {
                         </form>
                         <section className="signUpTxt">Don't have an account?<p onClick={goToSignupPanel} className="mouseCursorHoverPointer"> Sign Up</p></section>
                     </section>
-                    <section className="signUpPanel">
+                    <section ref={signUpForm} className="signUpPanel">
                         <header className="signUpHeader">
                             <div onClick={goToLoginPanel} className="btnBack2login">Back to Login</div>
                             <section className="subSignupHeader" onClick={goToAvatarPanel}>
@@ -107,9 +145,9 @@ const JoinPage = () => {
                                 <WelcomeInput className="" placeholder="Username"/>
                                 <WelcomeInput className="" placeholder="Password" type="password"/>
                             </section>
-                            <div className="btnWelcomeForm mouseCursorHoverPointer createProfileButton" type="submit" onClick={(e) => e.target.parentElement.submit()}>
+                            <button className="btnWelcomeForm mouseCursorHoverPointer createProfileButton" type="submit" onClick={signupFormSubmit}>
                                 Create
-                            </div>
+                            </button>
                         </form>
                     </section>
                     <section className="avatarPanel">
