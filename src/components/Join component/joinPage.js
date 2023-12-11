@@ -17,6 +17,7 @@ const JoinPage = () => {
     const signUpForm = useRef();
     const avatarRef = useRef();
     const avatarListContainer = useRef();
+    const [isLoading, setIsLoading] = useState(false)
     const [userAvatar,setUserAvatar] = useState("bird_main.webp");
     const LOGIN_API_URL = "http://localhost:5040/login";
     const SIGNUP_API_URL = "http://localhost:5040/signup"
@@ -26,10 +27,12 @@ const JoinPage = () => {
     
     
     const loginFormSubmit = (e) =>{
+        setIsLoading(true);
         e.preventDefault();
+        
         const username = loginInForm.current.getElementsByTagName("input")[0];
         const password = loginInForm.current.getElementsByTagName("input")[1];
-
+        
         const data ={
             username: username.value.trim(), 
             password: password.value
@@ -38,19 +41,25 @@ const JoinPage = () => {
             .then(res =>{
                 const dataType = res.data.substring(0, 2);
                 if(dataType === "m-") {
-                    alert(res.data.slice(2)); 
+                    alert(res.data.slice(2));
+                    setIsLoading(false);
                     return;
                 }
                 
+                setIsLoading(false);
                 navigate(`/chat?uid=${res.data}`);
             })
             .catch(error =>{
                 console.error(error)
+                setIsLoading(false);
             })
+        
+        
     }
 
     const signupFormSubmit = (e) =>{
         e.preventDefault();
+        setIsLoading(true);
         
         const inputs = signUpForm.current.getElementsByTagName("input");
         const name = inputs[0];
@@ -73,13 +82,16 @@ const JoinPage = () => {
                 const dataType = res.data.substring(0, 2);
                 if(dataType === "m-") {
                     alert(res.data.slice(2)); 
+                    setIsLoading(false);
                     return;
                 }
                 
+                setIsLoading(false);
                 navigate(`/chat?uid=${res.data}`);
             })
             .catch(error =>{
                 console.error(error)
+                setIsLoading(false);
             })
     }
 
@@ -106,9 +118,6 @@ const JoinPage = () => {
         panelContainer.current.style.transform = "translateX(-200%)";
     }
 
-    
-
-
     return (
         <>
             <section className="welcomeBg">
@@ -116,12 +125,14 @@ const JoinPage = () => {
                     <section className="logInPanel">
                         <img src={joinLogo} loading="lazy" className="MainLogo" alt="Main Logo"/>
                         <div className="welcomeTitle signInTitle">Welcome to PigeonChat</div>
-                        <form ref={loginInForm} className="logInForm" > {/* onSubmit={loginFormSubmit} */}
+                        <form ref={loginInForm} className="logInForm"> 
                             <section className="logInInputSection">
                                 <WelcomeInput className="usernameInput" placeholder="Username"/>
                                 <WelcomeInput className="passwordInput" placeholder="Password" type="password"/>
                             </section>
-                            <button className="btnWelcomeForm mouseCursorHoverPointer btnLogin" type="submit" onClick={loginFormSubmit}>Login</button>
+                            <button className="btnWelcomeForm mouseCursorHoverPointer btnLogin" type="submit" onClick={loginFormSubmit}>
+                                {isLoading ? '...' : 'Login'}
+                            </button>
                         </form>
                         <section className="signUpTxt">Don't have an account?<p onClick={goToSignupPanel} className="mouseCursorHoverPointer"> Sign Up</p></section>
                     </section>
@@ -141,12 +152,12 @@ const JoinPage = () => {
                         <div className="welcomeTitle signup">Make Your Own Account</div>
                         <form className="signupForm">
                             <section className="signupInputSection">
-                                <WelcomeInput className="" placeholder="Your Name"/>
-                                <WelcomeInput className="" placeholder="Username"/>
-                                <WelcomeInput className="" placeholder="Password" type="password"/>
+                                <WelcomeInput placeholder="Your Name"/>
+                                <WelcomeInput placeholder="Username"/>
+                                <WelcomeInput placeholder="Password" type="password"/>
                             </section>
                             <button className="btnWelcomeForm mouseCursorHoverPointer createProfileButton" type="submit" onClick={signupFormSubmit}>
-                                Create
+                                {isLoading ? '...' : 'Create'}
                             </button>
                         </form>
                     </section>
