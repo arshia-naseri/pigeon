@@ -12,6 +12,11 @@
     --welcome--customeInput--font--color: rgba(74,74,74,.54);
 }
 
+@font-face {
+    font-family: WelcomeFancyTitle;
+    src: url('../resources/Fonts/YeastyFlavorsRegular-yweyd.ttf');
+}
+
 body{
     background-color: rgb(245,245,245);
     position: relative;

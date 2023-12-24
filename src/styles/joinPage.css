@@ -28,7 +28,7 @@
 .welcomeTitle{
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-    font-family: Roboto;
+    font-family: WelcomeFancyTitle;
     font-size: 2rem;
     font-style: normal;
     font-weight: 700;
@@ -54,6 +54,7 @@
 {
     color: rgb(230, 237, 249);
     background: #6C7CD0;
+    /* background: #CFD5E0; */
     box-shadow: 0px 0px 0px 3px #6C7CD0;
 }
 

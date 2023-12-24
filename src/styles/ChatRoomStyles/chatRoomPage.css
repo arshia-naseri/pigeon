@@ -1,0 +1,13 @@
+:root{
+    --clr--chatRoom--primary: rgb(171,191,237);
+    --clr--chatRoom--primary--dark: rgb(38,43,73);
+    --clr--chatRoom--MainUser--profilePic--bg: rgb(209, 214, 240);
+}
+
+
+#chatRoomPageContainer{
+    width: 100vw; height: 100vh;
+}
+
+
+

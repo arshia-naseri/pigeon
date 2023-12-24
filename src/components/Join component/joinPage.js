@@ -32,7 +32,7 @@ const JoinPage = () => {
         
         const username = loginInForm.current.getElementsByTagName("input")[0];
         const password = loginInForm.current.getElementsByTagName("input")[1];
-        
+        e.target.disabled = true
         const data ={
             username: username.value.trim(), 
             password: password.value
@@ -43,15 +43,18 @@ const JoinPage = () => {
                 if(dataType === "m-") {
                     alert(res.data.slice(2));
                     setIsLoading(false);
+                    e.target.disabled = false
                     return;
                 }
                 
                 setIsLoading(false);
+                e.target.disabled = false
                 navigate(`/chat?uid=${res.data}`);
             })
             .catch(error =>{
                 console.error(error)
                 setIsLoading(false);
+                e.target.disabled = false
             })
         
         
@@ -65,6 +68,7 @@ const JoinPage = () => {
         const name = inputs[0];
         const username = inputs[1];
         const password = inputs[2];
+        
 
         const data = {
             avatarPic: userAvatar,
@@ -76,22 +80,25 @@ const JoinPage = () => {
         if(data.name.length < 1){ alert("Name was not entered"); return; }
         if(data.username.length < 1){ alert("Username was not entered"); return }
         if(data.password.length < 1){ alert("Password was not entered"); return; }
-
+        e.target.disabled = true
         axios.post(SIGNUP_API_URL, data)
             .then(res =>{
                 const dataType = res.data.substring(0, 2);
                 if(dataType === "m-") {
                     alert(res.data.slice(2)); 
                     setIsLoading(false);
+                    e.target.disabled = false;
                     return;
                 }
                 
                 setIsLoading(false);
+                e.target.disabled = false;
                 navigate(`/chat?uid=${res.data}`);
             })
             .catch(error =>{
                 console.error(error)
                 setIsLoading(false);
+                e.target.disabled = false;
             })
     }
 
