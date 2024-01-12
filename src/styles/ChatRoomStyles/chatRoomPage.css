@@ -2,6 +2,7 @@
     --clr--chatRoom--primary: rgb(171,191,237);
     --clr--chatRoom--primary--dark: rgb(38,43,73);
     --clr--chatRoom--MainUser--profilePic--bg: rgb(209, 214, 240);
+    --size--chatRoom--profilePic: 4.5rem;
 }
 
 
@@ -9,5 +10,29 @@
     width: 100vw; height: 100vh;
 }
 
+/* Profile pictures style */
+/* ? Setting default style for profile pictures */
+.profilePicContainer{
+    width: var(--size--chatRoom--profilePic); height: var(--size--chatRoom--profilePic);
+    display: inline-flex;  
+    min-width: var(--size--chatRoom--profilePic); 
+    border-radius: 50%;
+    background-color: var(--clr--chatRoom--MainUser--profilePic--bg);
+    margin-top: auto; margin-bottom: auto;
+}
 
+.profilePicContainer img{
+    margin-left: auto;  margin-right: auto;
+    width: 110%; height: 110%;
+}
 
+/* Overflow text style */
+/*** 
+*? For example: Arshia Na...  
+*? The full text is "Arshia Naseri" 
+***/
+.txtOverFlowStyle{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

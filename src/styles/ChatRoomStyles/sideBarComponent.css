@@ -5,3 +5,62 @@
     border-right: solid 2px rgba(0,0,0,.2);
 }
 
+/* Message Profile */
+/* ? This is for the list of profile the user in talking to */
+
+.messageProfileClass{
+    display: flex;
+    position: relative;
+    overflow: auto;
+    align-items: center;
+    padding: 1rem;
+    padding-top: 2rem; padding-bottom: 2rem;
+    position: relative;
+}
+
+.messageProfileClass .profileMessageName{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 1.1rem;
+    z-index: 1;
+}
+
+.messageProfileClass .messageProfileHighlight{
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    width: 98%; height: 100%;
+}
+
+.messageProfileClass:hover .messageProfileHover:not(.messageProfileSelect){
+    background-color: rgba(233, 235, 248, 0.7);
+}
+
+.messageProfileClass .messageProfileSelect{
+    background-color: rgb(233, 235, 248);
+}
+
+/* Line seperator */
+/* ? For all elements but the last one */
+.messageProfileClass:not(:last-child)::after{
+    content: '';
+    position: absolute;
+    width: 80%; height: 2px;
+    background: linear-gradient(to right, rgba(0,0,0,0.05), rgba(0, 0, 0, 0.2), rgba(0,0,0,0.05));
+    left: 50%; top: 100%;
+    transform: translate(-50%, -100%);
+    z-index: 1;
+}
+
+/* Not-seen message Profile alert*/
+/* ? displays a dot behind message profiles which are not seen yet */
+.messageProfileClass .newMessageAlertDiv{
+    width: 0.8rem; height: 0.8rem;
+    border-radius: 50%;
+    background-color: rgb(108, 124, 208);
+    margin-right: 1rem;
+}
+
+.messageProfileClass .newMessageAlertDiv[data-message-alert=false]{
+    background-color: rgba(0,0,0,0);
+}
