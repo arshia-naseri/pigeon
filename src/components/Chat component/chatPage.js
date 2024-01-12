@@ -79,6 +79,8 @@ const ChatPage = () =>{
     const messageProfileClicked = (e) =>{
         const messageProfileElm = e.currentTarget;
         const messageProfileListElm = messageProfileElm.parentNode;
+
+        messageProfileElm.getElementsByClassName("newMessageAlertDiv")[0].dataset.messageAlert = false;
         
         // Getting which message profile was selected the ID
         setProfileMessageSelected(messageProfileElm.dataset.profileMessageId)
