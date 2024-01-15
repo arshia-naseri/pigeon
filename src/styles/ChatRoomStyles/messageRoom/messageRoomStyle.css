@@ -1,0 +1,6 @@
+@import url('./messageRoomTopBar.css');
+
+#messageRoomContainer{
+    position: relative;
+    width: 100%; height: 100%;
+}

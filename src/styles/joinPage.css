@@ -1,7 +1,7 @@
-@import url("_WelcomeInput.css");
-@import url("_login.css");
-@import url("_signup.css");
-@import url("_avatarSelectorList.css");
+@import url("./WelcomePageStyles/_WelcomeInput.css");
+@import url("./WelcomePageStyles/_login.css");
+@import url("./WelcomePageStyles/_signup.css");
+@import url("./WelcomePageStyles/_avatarSelectorList.css");
 
 .welcomeBg{
     background-color: var(--clr--main--panel);

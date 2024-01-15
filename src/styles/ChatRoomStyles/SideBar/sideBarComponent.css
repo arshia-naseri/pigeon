@@ -24,6 +24,12 @@
     margin-left: 1.1rem;
     z-index: 1;
 }
+
+.messageProfileClass .profilePicContainer{
+    z-index: 1;
+}
+
+
 /* message Profile highlight (Hover & Select) */
 .messageProfileClass .messageProfileHighlight{
     position: absolute;

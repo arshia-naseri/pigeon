@@ -1,0 +1,25 @@
+@import url('./messageRoomMembers.css');
+:root{
+    --size--MessageRoom--TopBar--pic: 4.5rem;
+}
+
+#messageRoomTopBar{
+    width: 100%; height: var(--height--chatRoom--topMenu);
+    background-color: var(--clr--chatRoom--primary--dark);
+
+    display: flex;
+    align-items: center;
+}
+
+#messageRoomTopBarPic{
+    width: var(--size--MessageRoom--TopBar--pic) !important; 
+    min-width: var(--size--MessageRoom--TopBar--pic) !important;
+    height: var(--size--MessageRoom--TopBar--pic) !important;
+    margin-left: 3rem;
+}
+
+#messageRoomTitle{
+    color: white;
+    font-weight: bold; font-size: 2rem;
+    margin-left: 1.2rem;
+}

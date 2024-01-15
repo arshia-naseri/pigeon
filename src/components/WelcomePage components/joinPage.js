@@ -147,7 +147,7 @@ const JoinPage = () => {
                         <header className="signUpHeader">
                             <div onClick={goToLoginPanel} className="btnBack2login">Back to Login</div>
                             <section className="subSignupHeader" onClick={goToAvatarPanel}>
-                                <section className="profilePicContainer">
+                                <section id="avatarDisplay" className="profilePicContainer">
                                     <div className="avatarImgSignup" ref={avatarRef} />
                                     
                                     <div className="imgPen"/>

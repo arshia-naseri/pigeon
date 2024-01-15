@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ProfilePicComponent from '../../profilePicComponent';
+
 const ChatRoomItem = ({UserID, chatRoom, messageProfileClicked}) =>{
     const [messageProfile,setMessageProfile] = useState();
     
@@ -42,9 +44,9 @@ const ChatRoomItem = ({UserID, chatRoom, messageProfileClicked}) =>{
         }
     }, []);
 
-    if(messageProfile === undefined || chatRoom === undefined){
+    if(messageProfile === undefined || chatRoom === undefined)
         return(<div>Loading Messages</div>)
-    }
+
     return(
         <section 
             data-profile-message-id = {chatRoom._id}
@@ -54,17 +56,12 @@ const ChatRoomItem = ({UserID, chatRoom, messageProfileClicked}) =>{
             
             <div data-message-alert={false} className="newMessageAlertDiv"/> 
             {/* When selected, it acts as a hightlight */}
-            {/* "messageProfileSelect" is added when user selects*/}
+            {/* "messageProfileSelect" is added when user selects */}
             <div 
                 className='messageProfileHighlight messageProfileHover'
             />
-            
-            <section className="profilePicContainer">
-                <img loading="lazy" 
-                    alt="Main User avatar" 
-                    src={require(`../../../resources/Avatars/${messageProfile.profilePic}`)}
-                />
-            </section>
+
+            <ProfilePicComponent avatarPic={messageProfile.profilePic}/>
 
             <div 
                 title={messageProfile.name} 

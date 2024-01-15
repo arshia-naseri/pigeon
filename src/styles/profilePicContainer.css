@@ -1,0 +1,16 @@
+/* Profile pictures style */
+/* ? Setting default style for profile pictures */
+.profilePicContainer{
+    position: relative;
+    width: var(--size--chatRoom--profilePic); height: var(--size--chatRoom--profilePic);
+    display: flex;  
+    min-width: var(--size--chatRoom--profilePic); 
+    border-radius: 50%;
+    background-color: var(--clr--chatRoom--MainUser--profilePic--bg);
+    margin-top: auto; margin-bottom: auto;
+}
+
+.profilePicContainer img{
+    margin-left: auto;  margin-right: auto;
+    width: 110%; height: 110%;
+}

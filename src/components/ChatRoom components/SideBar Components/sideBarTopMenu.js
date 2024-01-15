@@ -1,12 +1,11 @@
+import ProfilePicComponent from "../../profilePicComponent";
 const SideBarTopMenu = ({User}) =>{
     return (
         <nav id="topMenuContainer">
-            <section className="profilePicContainer mainUserProfilePicContainer">
-                <img loading="lazy" 
-                    alt="Main User avatar" 
-                    src={require(`../../../resources/Avatars/${User.avatarPic}`)}
-                />
-            </section>
+            <ProfilePicComponent 
+                cID='mainUserProfilePicContainer'
+                avatarPic={User.avatarPic}
+            />
             <section id="MainUsernameSection">
                 <p className ="txtOverFlowStyle" title={User.name}>{User.name}</p>
                 <p title={`@${User.username}`}>@{User.username}</p>

@@ -1,11 +1,9 @@
 import queryString from 'query-string';
 import React, { useEffect, useRef, lazy, Suspense, useState } from 'react';
 import axios from 'axios';
-import Loading from '../Loading.js';
 import SideBarComponent from './SideBar Components/sideBarComponent.js';
-import "../../styles/ChatRoomStyles/chatRoomPage.css"
-
-// const SideBarComponent = lazy(()=> import("./sideBarComponent"));
+import MessagingComponent from './MessageRoom Components/messageRoomComponent.js';
+import "../../styles/chatRoomPage.css"
 
 // http://localhost:3000/#/chat?uid=65805fa47cf91f7433ac2251
 
@@ -59,10 +57,8 @@ const ChatPage = () =>{
                 const {uid} = queryString.parse(window.location.hash.substring(index + 1));  //Find locaation variable since its not working 
                 const user = await getUser(uid);
                 setUser(user);
-                // console.log(user)
                 let chats = await getUserChatRoomsList(user.chatRoomIDList);
                 setChatRoomList(chats)
-                // console.log(chats)
             }
         }
 
@@ -76,6 +72,9 @@ const ChatPage = () =>{
         return (<div>Wait</div>)
     }
 
+    const messageRoomExtractor = (chatRoomId) =>{
+        return chatRoomList.find(object => object._id === chatRoomId)
+    }
     const messageProfileClicked = (e) =>{
         const messageProfileElm = e.currentTarget;
         const messageProfileListElm = messageProfileElm.parentNode;
@@ -83,7 +82,8 @@ const ChatPage = () =>{
         messageProfileElm.getElementsByClassName("newMessageAlertDiv")[0].dataset.messageAlert = false;
         
         // Getting which message profile was selected the ID
-        setProfileMessageSelected(messageProfileElm.dataset.profileMessageId)
+        let clickedChatRoomID = messageProfileElm.dataset.profileMessageId;
+        setProfileMessageSelected(clickedChatRoomID);
 
         let elms = messageProfileListElm.getElementsByClassName('messageProfileSelect');
         for(let elm of elms){
@@ -92,21 +92,28 @@ const ChatPage = () =>{
         messageProfileElm.getElementsByClassName('messageProfileHighlight')[0]
                         .classList.add('messageProfileSelect');
     }
-    
 
+    const elementsClicked = (e) => {
+        // if
+    }
 
     return(<>
-        <main id='chatRoomPageContainer'>
+        <main id='chatRoomPageContainer' onClick={elementsClicked}>
             {/* ChatMenuComponent */}
             <SideBarComponent 
                 User = {User} 
                 ChatList={chatRoomList} 
                 messageProfileClicked = {messageProfileClicked}
             />
-            {/* SideBarComponent */}
-            {/* <Suspense fallback={<Loading/>}>
-                
-            </Suspense> */}
+            {profileMessageSelected ? 
+            <MessagingComponent 
+                User = {User}
+                chatRoomObject={messageRoomExtractor(profileMessageSelected)}
+            />:
+                <div id='notLoadedChatRoomComponent'>
+                    Select a Park or <u className='mouseCursorHoverPointer'>Create</u> one yourself  
+                </div>
+            }
         </main>
     </>)
 }

@@ -1,6 +1,6 @@
 import {HashRouter as Router, Route, Routes} from "react-router-dom";
-import JoinRoute from "./components/Join component/joinPage"
-import ChatRoute from "./components/Chat component/chatPage"
+import JoinRoute from "./components/WelcomePage components/joinPage.js"
+import ChatRoute from "./components/ChatRoom components/chatPage.js"
 
 import "./styles/mainStyle.css"
 

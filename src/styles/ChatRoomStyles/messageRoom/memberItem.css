@@ -1,0 +1,26 @@
+:root{
+    --size--messageRoom--memberPic: 2.5rem;
+}
+
+.memberItemSection{
+    width: fit-content;
+    display: flex; align-items: center;
+    gap: 0.1rem;
+    position: relative;
+}
+
+.memberItemSection .memberPic{
+    width: var(--size--messageRoom--memberPic) !important; 
+    min-width: var(--size--messageRoom--memberPic) !important;
+    height: var(--size--messageRoom--memberPic) !important;
+}
+
+.memberItemSection .memberLabelSection{
+    display: flex;
+    flex-direction: column;
+}
+
+.memberLabelSection .memberName{
+    font-weight: bold;
+    font-size: 1rem;
+}
