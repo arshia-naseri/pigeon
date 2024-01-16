@@ -1,0 +1,57 @@
+#sendBarContainer{
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+    background-color: rgb(209, 214, 240);
+    height: 5.5rem;
+
+    display: flex;
+}
+#sendBarContainer *{
+    margin: 0; padding: 0;
+}
+
+#sendBarContainer #sendBarElements{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: flex; flex-direction: row;
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+#sendBarElements #txtSend{
+    border: none;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 100%;
+    
+}
+
+#txtSend:focus{
+    outline: solid 3px rgba(175, 191, 237, 0.3);
+}
+
+#sendBarElements #btnSend{
+    position: relative;
+    width: 4rem;
+    background-color: rgb(175, 191, 237);
+    
+    border: solid 1px rgba(0,0,0, 0.3);
+    border-radius: 15px;
+}
+
+#sendBarElements #btnSend::after{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-image: url(../../../resources/send-icon.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
+
+#sendBarElements #btnSend:disabled::after{
+    opacity: 0.3;
+}
+

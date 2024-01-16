@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MessageRoomTopBar from './TopMenu/messageRoomTopBar.js';
+import MessageDisplay from './Message Display/messageRoomMessageDisplay.js';
+import SendBarComponent from './Message Send Bar/messageRoomSendBarComponent.js';
 
 import '../../../styles/ChatRoomStyles/messageRoom/messageRoomStyle.css'
 
-const MessagingComponent = ({User, chatRoomObject}) =>{
+const MessagingComponent = ({User, chatRoomObject, showMembersList, setShowMembersList}) =>{
     const [messageRoomPic, setMessageRoomPic] = useState();
     const [messageRoomTitle, setMessageRoomTitle] = useState();
 
@@ -72,7 +74,12 @@ const MessagingComponent = ({User, chatRoomObject}) =>{
                 messageRoomPic = {messageRoomPic}
                 messageRoomTitle = {messageRoomTitle}
                 members = {chatRoomObject.participants}
+                // Memebr's list Display
+                showMembersList = {showMembersList}
+                setShowMembersList = {setShowMembersList}
             />
+            <MessageDisplay />
+            <SendBarComponent />
         </section>
     )
 }

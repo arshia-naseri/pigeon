@@ -10,6 +10,8 @@ const ChatPage = () =>{
     const [chatRoomList, setChatRoomList] = useState();
     const [profileMessageSelected, setProfileMessageSelected] = useState();
 
+    const [showMembersList, setShowMembersList] = useState(false);
+
     const GET_USER_API_URL = process.env.REACT_APP_GET_USER_API_URL || "http://localhost:5040/getUser";
     const GET_USER_CHATROOM_LIST_API_URL = process.env.REACT_APP_GET_USER_CHATROOM_LIST_API_URL || "http://localhost:5040/getUserChatRoomList";
 
@@ -91,8 +93,20 @@ const ChatPage = () =>{
                         .classList.add('messageProfileSelect');
     }
 
+    // ? Purpose of this function is to revert the 
+    // ? elements in assisting in componenet loading
     const elementsClicked = (e) => {
-        // if
+        
+        var clickedElm,targetElm;
+        
+        clickedElm = e.target;
+        targetElm = document.getElementById("membersListContainer");
+        
+        if(targetElm === null){return null;}
+
+        if(showMembersList)
+            if(!targetElm.contains(clickedElm))
+                setShowMembersList(false);
     }
 
     return(<>
@@ -104,10 +118,12 @@ const ChatPage = () =>{
                 messageProfileClicked = {messageProfileClicked}
             />
             {profileMessageSelected ? 
-            <MessagingComponent 
-                User = {User}
-                chatRoomObject={messageRoomExtractor(profileMessageSelected)}
-            />:
+                <MessagingComponent 
+                    User = {User}
+                    chatRoomObject={messageRoomExtractor(profileMessageSelected)}
+                    showMembersList = {showMembersList}
+                    setShowMembersList = {setShowMembersList}
+                />:
                 <div id='notLoadedChatRoomComponent'>
                     Select a Park or <u className='mouseCursorHoverPointer'>Create</u> one yourself  
                 </div>

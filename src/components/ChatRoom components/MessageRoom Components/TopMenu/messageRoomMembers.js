@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import MemebrItem from './memberItem';
 
-const MessageRoomMembers = ({members}) =>{
-    const [showMembersList, setShowMembersList] = useState(false);
+const MessageRoomMembers = ({members, showMembersList, setShowMembersList}) =>{
+    
 
     const btnMemberClicked = () =>{
         setShowMembersList(!showMembersList);

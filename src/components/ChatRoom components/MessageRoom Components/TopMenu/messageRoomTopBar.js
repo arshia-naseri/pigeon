@@ -1,7 +1,7 @@
 import ProfilePicComponent from "../../../profilePicComponent";
 import MessageRoomMembers from "./messageRoomMembers";
 
-const MessageRoomTopBar = ({messageRoomPic, messageRoomTitle, members}) =>{
+const MessageRoomTopBar = ({messageRoomPic, messageRoomTitle, members, showMembersList, setShowMembersList}) =>{
 
     return(
         <section id="messageRoomTopBar">
@@ -12,7 +12,11 @@ const MessageRoomTopBar = ({messageRoomPic, messageRoomTitle, members}) =>{
             <div id="messageRoomTitle">{messageRoomTitle}</div>
             
             {members.length > 2 ? 
-                <MessageRoomMembers members={members}/>:
+                <MessageRoomMembers 
+                    members={members}
+                    showMembersList = {showMembersList}
+                    setShowMembersList = {setShowMembersList}
+                />:
                 null
             }
             
