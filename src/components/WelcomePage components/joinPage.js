@@ -126,7 +126,7 @@ const JoinPage = () => {
         panelContainer.current.style.transform = "translateX(-200%)";
     }
 
-    console.log(process.env.REACT_APP_NUMBER);
+    console.log(process.env.REACT_APP_NUMBER || "No envirement added");
 
     return (
         <>
