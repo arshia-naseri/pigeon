@@ -9,6 +9,7 @@ import axios from "axios"
 import "../../styles/joinPage.css"
 
 
+
 const JoinPage = () => {
     const avatarList = ["bird_main.webp", "bird_girl.webp", "bird_glasses.webp", 
     "bird_afro.webp", "bird_french.webp", "dog.webp", "fox.webp", "ghost.webp", "bear.webp", "bee.webp", "cat.webp", "snowman.webp"];
@@ -124,6 +125,8 @@ const JoinPage = () => {
     const goToAvatarPanel = (e) =>{
         panelContainer.current.style.transform = "translateX(-200%)";
     }
+
+    console.log(process.env.REACT_APP_NUMBER);
 
     return (
         <>
