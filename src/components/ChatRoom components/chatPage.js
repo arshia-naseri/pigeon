@@ -5,15 +5,13 @@ import SideBarComponent from './SideBar Components/sideBarComponent.js';
 import MessagingComponent from './MessageRoom Components/messageRoomComponent.js';
 import "../../styles/chatRoomPage.css"
 
-// http://localhost:3000/#/chat?uid=65805fa47cf91f7433ac2251
-
 const ChatPage = () =>{
     const [User, setUser] = useState();
     const [chatRoomList, setChatRoomList] = useState();
     const [profileMessageSelected, setProfileMessageSelected] = useState();
 
-    const GET_USER_API_URL = "http://localhost:5040/getUser";
-    const GET_USER_CHATROOM_LIST_API_URL = "http://localhost:5040/getUserChatRoomList";
+    const GET_USER_API_URL = process.env.REACT_APP_GET_USER_API_URL || "http://localhost:5040/getUser";
+    const GET_USER_CHATROOM_LIST_API_URL = process.env.REACT_APP_GET_USER_CHATROOM_LIST_API_URL || "http://localhost:5040/getUserChatRoomList";
 
     const timeout = (ms) => {
         return new Promise ((resolve) => setTimeout(resolve,ms));

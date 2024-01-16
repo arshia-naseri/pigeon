@@ -20,8 +20,8 @@ const JoinPage = () => {
     const avatarListContainer = useRef();
     const [isLoading, setIsLoading] = useState(false)
     const [userAvatar,setUserAvatar] = useState("bird_main.webp");
-    const LOGIN_API_URL = "http://localhost:5040/login";
-    const SIGNUP_API_URL = "http://localhost:5040/signup"
+    const LOGIN_API_URL = process.env.REACT_APP_LOGIN_API_URL || "http://localhost:5040/login";
+    const SIGNUP_API_URL = process.env.REACT_APP_SIGNUP_API_URL || "http://localhost:5040/signup";
 
     const panelContainer = useRef();
     const navigate = useNavigate();
