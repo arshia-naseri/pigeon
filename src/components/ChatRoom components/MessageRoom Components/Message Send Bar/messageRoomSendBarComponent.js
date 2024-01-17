@@ -6,20 +6,25 @@ const SendBarComponent = () =>{
     const [isBtnActive, setIsBtnActive] = useState(false);
 
     const textFieldChange = (e) =>{
-        if(e.currentTarget.value.length === 0)
+        if(e.target.value === '') 
             setIsBtnActive(false);
         else
             setIsBtnActive(true);
+
+        e.target.style.height = "auto";
+        e.target.style.height = e.target.scrollHeight- e.target.clientHeight + 18 + 'px';
     }
 
     const clickedSendButton = (e) =>{
         e.preventDefault();
+        console.log(txtSend.current.value)
     }
-
+    
     return (
         <section id="sendBarContainer">
             <form autoComplete="off" id="sendBarElements">
-                <input 
+                <textarea
+                    rows={1}
                     ref={txtSend}
                     name="text" 
                     id="txtSend"

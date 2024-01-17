@@ -108,7 +108,6 @@ const ChatPage = () =>{
             if(!targetElm.contains(clickedElm))
                 setShowMembersList(false);
     }
-
     return(<>
         <main id='chatRoomPageContainer' onClick={elementsClicked}>
             {/* ChatMenuComponent */}

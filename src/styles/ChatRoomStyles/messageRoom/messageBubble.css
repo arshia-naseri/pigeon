@@ -1,0 +1,66 @@
+:root{
+    --size--triabgle: 1rem;
+    --clr--primary--user: rgb(175, 191, 237);
+    --clr--text--bubble: rgb(233, 235, 248);
+    --size--side--margins: 1.5rem;
+}
+
+.messageBubbleContainer{
+    padding: 1.5rem 0;
+    width: 100%;
+}
+
+.textBubble p{
+    margin: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+.textBubble p:not(:last-child) {
+    margin-bottom: 0.1rem;
+}
+
+.messageBubbleContainer .textBubble{
+    position: relative;
+    background-color: var(--clr--text--bubble);
+    padding: 1rem;
+    border-radius: 15px;
+    width: fit-content;
+    max-width: 50%;
+    margin-left: var(--size--side--margins);
+}
+
+.messageBubbleContainer[data-primary-user = "true"] .textBubble{
+    margin-left: auto;
+    background-color: var(--clr--primary--user);
+    margin-right: var(--size--side--margins);
+}
+
+.messageBubbleContainer[data-primary-user = "false"] .textBubble .triangle{
+    position: absolute;
+
+    left: 0%;
+    transform: translateX(-15%);
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+
+    border-bottom: var(--size--triabgle) solid var(--clr--text--bubble);
+}
+
+.messageBubbleContainer[data-primary-user = "true"] .textBubble .triangle{
+    position: absolute;
+    z-index: 0;
+    left: 100%;
+    transform: translateX(-85%);
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+  
+    border-bottom: var(--size--triabgle) solid var(--clr--primary--user);
+}
+
+.timeStamp{
+    position: relative;
+    z-index: 3;
+    margin-top: 0.7rem;
+    margin-bottom: -0.7rem;
+    color: rgba(0, 0, 0, 0.7);
+}

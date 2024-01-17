@@ -65,9 +65,9 @@ const MessagingComponent = ({User, chatRoomObject, showMembersList, setShowMembe
         setMessageRoomPic(getMessageRoomPic());
     }, [chatRoomObject])
 
-    if(messageRoomPic === undefined || messageRoomTitle === undefined)
-        return <></>
+    if(messageRoomPic === undefined || messageRoomTitle === undefined) {return <></>}
     
+    // console.log(chatRoomObject);
     return(
         <section id='messageRoomContainer'>
             <MessageRoomTopBar 
@@ -78,7 +78,10 @@ const MessagingComponent = ({User, chatRoomObject, showMembersList, setShowMembe
                 showMembersList = {showMembersList}
                 setShowMembersList = {setShowMembersList}
             />
-            <MessageDisplay />
+            <MessageDisplay 
+                username = {User.username}
+                messagesObject = {chatRoomObject.messages}
+            />
             <SendBarComponent />
         </section>
     )

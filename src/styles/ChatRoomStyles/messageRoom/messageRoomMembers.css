@@ -16,6 +16,7 @@
 
 #membersListContainer{
     position: absolute;
+    z-index: 10;
     min-height: fit-content;
     height: var(--hight--membersListContainer--height);
     overflow-y: auto;
