@@ -8,10 +8,11 @@
 
 
 #chatRoomPageContainer{
+    
     width: 100vw; height: 100vh;
     display: flex;
     position: relative;
-    /* align-items: center; */
+    overflow:hidden;
 }
 
 /* Overflow text style */

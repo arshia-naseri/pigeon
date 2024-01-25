@@ -9,6 +9,7 @@ const ChatPage = () =>{
     const [User, setUser] = useState();
     const [chatRoomList, setChatRoomList] = useState();
     const [profileMessageSelected, setProfileMessageSelected] = useState();
+    const [contacts, setContacts] = useState();
 
     const [showMembersList, setShowMembersList] = useState(false);
 
@@ -58,7 +59,7 @@ const ChatPage = () =>{
                 const user = await getUser(uid);
                 setUser(user);
                 let chats = await getUserChatRoomsList(user.chatRoomIDList);
-                setChatRoomList(chats)
+                setChatRoomList(chats);
             }
         }
 

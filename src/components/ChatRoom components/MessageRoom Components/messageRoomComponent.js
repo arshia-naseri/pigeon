@@ -41,25 +41,6 @@ const MessagingComponent = ({User, chatRoomObject, showMembersList, setShowMembe
         return chatRoomObject.participants.find(participant => participant.username !== User.username).name;
     }
 
-    const timeout = (ms) => {
-        return new Promise ((resolve) => setTimeout(resolve,ms));
-    }
-
-    useEffect(() => {
-        let isCancelled = false;
-        const runOnce = async () =>{
-            await timeout(5);
-            if(!isCancelled){
-                
-            }
-        }
-
-        runOnce();
-        return () =>{
-            isCancelled = true;
-        }
-    }, []);
-
     useEffect(() => {
         setMessageRoomTitle(getMessageRoomTitle());
         setMessageRoomPic(getMessageRoomPic());

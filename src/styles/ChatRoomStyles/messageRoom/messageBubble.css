@@ -2,12 +2,26 @@
     --size--triabgle: 1rem;
     --clr--primary--user: rgb(175, 191, 237);
     --clr--text--bubble: rgb(233, 235, 248);
-    --size--side--margins: 1.5rem;
 }
 
 .messageBubbleContainer{
-    padding: 1.5rem 0;
+    position: relative;
     width: 100%;
+    height: fit-content;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+
+.messageDisplayAvatarPic{
+    position: relative;
+    z-index: 10;
+    min-width: 1rem !important; 
+    width: 2rem !important;
+    height: 2.2rem;
+    transform: translateY(60%);
+    background-color: white;
 }
 
 .textBubble p{
@@ -26,13 +40,11 @@
     border-radius: 15px;
     width: fit-content;
     max-width: 50%;
-    margin-left: var(--size--side--margins);
 }
 
 .messageBubbleContainer[data-primary-user = "true"] .textBubble{
     margin-left: auto;
     background-color: var(--clr--primary--user);
-    margin-right: var(--size--side--margins);
 }
 
 .messageBubbleContainer[data-primary-user = "false"] .textBubble .triangle{
@@ -57,10 +69,23 @@
     border-bottom: var(--size--triabgle) solid var(--clr--primary--user);
 }
 
-.timeStamp{
+.messageBubbleContainer .timeStamp{
     position: relative;
     z-index: 3;
     margin-top: 0.7rem;
     margin-bottom: -0.7rem;
     color: rgba(0, 0, 0, 0.7);
+}
+
+.hideTriangle{
+    display: none;
+}
+
+.messageBubbleContainer[data-cont-message = "true"] .triangle{
+    display: none;
+    background-color: red;
+}
+
+.messageBubbleContainer[data-cont-message = "true"] {
+    margin-bottom: 0.5rem;
 }

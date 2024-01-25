@@ -71,3 +71,7 @@
 .messageProfileClass .newMessageAlertDiv[data-message-alert=false]{
     background-color: rgba(0,0,0,0);
 }
+
+#MessageList{
+    overflow-y: scroll;
+}

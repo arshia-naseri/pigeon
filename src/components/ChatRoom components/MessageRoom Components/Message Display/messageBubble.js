@@ -1,3 +1,4 @@
+import ProfilePicComponent from "../../../profilePicComponent"
 const MessageBubble = ({text, time, name, username, avatarPic, primaryUserSent}) =>{
     
     function NewLine (props) {
@@ -14,12 +15,25 @@ const MessageBubble = ({text, time, name, username, avatarPic, primaryUserSent})
         }
 
         let newText = textArray.join('\n');
-        console.log(newText)
     }
     let t = new Date(time);
     return (
-        <section data-primary-user={primaryUserSent} className="messageBubbleContainer" onClick={secClick}>
+        <section data-primary-user={primaryUserSent} 
+                data-username={username} 
+                data-cont-message = "false"
+                className="messageBubbleContainer" 
+                onClick={secClick}>
+            {primaryUserSent ? 
+                null:
+                <ProfilePicComponent
+                    classList="messageDisplayAvatarPic"
+                    avatarPic={avatarPic}
+                />
+            }
             <section className="textBubble">
+                {
+                    primaryUserSent ? null: <div className="messageDisplayName">~{name}</div>
+                }
                 <NewLine text ={text}/>
                 <div className="timeStamp">
                     {`${t.getHours() % 12 || 12}:${t.getMinutes() < 10? '0'+t.getMinutes():t.getMinutes()} ${t.getHours() < 12? 'AM':'PM'}`}

@@ -4,10 +4,13 @@
 }
 #MessagesSection{
     height: 100%;
+    position: relative;
     background-color: white;
     display: flex; flex-direction: column;
+    /* flex-shrink: 0; */
 
-    gap: var(--gap--bubble--space);
+    /* gap: var(--gap--bubble--space); */
     overflow-y: scroll;
+    padding: 1.5rem 1rem;
 }
 
