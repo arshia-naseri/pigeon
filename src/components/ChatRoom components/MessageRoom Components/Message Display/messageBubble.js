@@ -15,10 +15,14 @@ const MessageBubble = ({text, time, name, username, avatarPic, primaryUserSent})
         }
 
         let newText = textArray.join('\n');
+        console.log(newText)
     }
+
     let t = new Date(time);
     return (
-        <section data-primary-user={primaryUserSent} 
+        <section data-primary-user={primaryUserSent}
+                data-sent-date = {time}
+                data-show-date = "false"
                 data-username={username} 
                 data-cont-message = "false"
                 className="messageBubbleContainer" 
@@ -30,6 +34,7 @@ const MessageBubble = ({text, time, name, username, avatarPic, primaryUserSent})
                     avatarPic={avatarPic}
                 />
             }
+            
             <section className="textBubble">
                 {
                     primaryUserSent ? null: <div className="messageDisplayName">~{name}</div>

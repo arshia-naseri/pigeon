@@ -13,4 +13,11 @@
     overflow-y: scroll;
     padding: 1.5rem 1rem;
 }
-
+#MessagesSection .dateDiv[data-show-date = "NULL"]{
+    display: none;
+}
+#MessagesSection .dateDiv{
+    margin: 0.4rem auto 2rem auto;
+    width: fit-content;
+    font-size: larger;
+}

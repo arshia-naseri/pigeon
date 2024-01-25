@@ -17,7 +17,7 @@ const SendBarComponent = () =>{
 
     const clickedSendButton = (e) =>{
         e.preventDefault();
-        console.log(txtSend.current.value)
+        alert("hello")
     }
     
     return (
