@@ -1,4 +1,5 @@
 import ProfilePicComponent from "../../../profilePicComponent"
+import "../../../../styles/ChatRoomStyles/messageRoom/messageBubble.css"
 const MessageBubble = ({text, time, name, username, avatarPic, primaryUserSent}) =>{
     
     function NewLine (props) {
@@ -7,26 +8,15 @@ const MessageBubble = ({text, time, name, username, avatarPic, primaryUserSent})
         return result;
     }
 
-    const secClick = (e) =>{
-        const textElements = e.currentTarget.getElementsByTagName("p");
-        let textArray = [];
-        for(let elm of textElements){
-            textArray.push(elm.innerHTML);
-        }
-
-        let newText = textArray.join('\n');
-        console.log(newText)
-    }
+    
 
     let t = new Date(time);
     return (
         <section data-primary-user={primaryUserSent}
                 data-sent-date = {time}
-                data-show-date = "false"
                 data-username={username} 
                 data-cont-message = "false"
-                className="messageBubbleContainer" 
-                onClick={secClick}>
+                className="messageBubbleContainer">
             {primaryUserSent ? 
                 null:
                 <ProfilePicComponent

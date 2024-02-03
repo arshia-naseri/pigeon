@@ -4,7 +4,7 @@ import "../../../../styles/ChatRoomStyles/messageRoom/messageDisplay.css"
 import MessageBubble from "./messageBubble"
 
 
-const MessageDisplay = ({username, messagesObject}) =>{
+const MessageDisplay = ({username, messagesObject, chatRoomList}) =>{
     const messageSection = useRef();
     
     const timeout = (ms) => {
@@ -16,16 +16,16 @@ const MessageDisplay = ({username, messagesObject}) =>{
         const runOnce = async () =>{
             await timeout(5);
             if(!isCancelled){
-                let messageContainers = messageSection.current.children;
-                let preUsername = '';
-                for (let index = 0; index < messageContainers.length; index++) {
-                    const container = messageContainers[index];
+                const containerList = messageSection.current.getElementsByClassName('messageBubbleContainer');
+                let preContainer = null;
+                for(const container of containerList){
+                    if(preContainer === null) {preContainer = container; continue;}
                     
-                    if(preUsername === container.dataset.username)
-                        messageContainers[index - 1].dataset.contMessage = "true";
-                    
-                    
-                    preUsername = container.dataset.username;
+                    if(container.dataset.username === preContainer.dataset.username){
+                        if(container.parentNode.getElementsByClassName('dateDiv')[0].innerHTML === 'NULL')
+                            preContainer.dataset.contMessage = "true";
+                    }
+                    preContainer = container;
                 }
 
                 // Auto Scroll to bottom
@@ -37,7 +37,7 @@ const MessageDisplay = ({username, messagesObject}) =>{
         return () =>{
             isCancelled = true;
         }
-    }, [messagesObject]);
+    }, [messagesObject,chatRoomList]);
 
     const getLocalDate = (objDate) =>{
         return `${objDate.getDate()}/${objDate.getMonth()+1}/${objDate.getFullYear()}`

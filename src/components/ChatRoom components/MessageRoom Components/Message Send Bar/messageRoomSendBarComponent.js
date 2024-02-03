@@ -1,9 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import "../../../../styles/ChatRoomStyles/messageRoom/sendBarStyle.css"
-const SendBarComponent = () =>{
+const SendBarComponent = ({chatRoomObjectID, sendMessage}) =>{
     const btnSend = useRef();
     const txtSend = useRef();
     const [isBtnActive, setIsBtnActive] = useState(false);
+
+    useEffect(()=>{
+        txtSend.current.focus();
+    }, [])
+
+    useEffect(()=>{
+        txtSend.current.value = '';
+        setIsBtnActive(false);
+    },[chatRoomObjectID])
 
     const textFieldChange = (e) =>{
         if(e.target.value === '') 
@@ -14,12 +23,16 @@ const SendBarComponent = () =>{
         e.target.style.height = "auto";
         e.target.style.height = e.target.scrollHeight- e.target.clientHeight + 18 + 'px';
     }
-
+    
     const clickedSendButton = (e) =>{
         e.preventDefault();
-        alert("hello")
+        sendMessage(txtSend.current.value);
+        txtSend.current.value = '';
+        txtSend.current.focus();
+        setIsBtnActive(false)
     }
     
+
     return (
         <section id="sendBarContainer">
             <form autoComplete="off" id="sendBarElements">

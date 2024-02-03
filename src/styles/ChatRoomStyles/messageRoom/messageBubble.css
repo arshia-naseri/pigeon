@@ -77,13 +77,8 @@
     color: rgba(0, 0, 0, 0.7);
 }
 
-.hideTriangle{
-    display: none;
-}
-
 .messageBubbleContainer[data-cont-message = "true"] .triangle{
     display: none;
-    background-color: red;
 }
 
 .messageBubbleContainer[data-cont-message = "true"] {
