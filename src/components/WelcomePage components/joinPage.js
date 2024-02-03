@@ -5,10 +5,12 @@ import imgInfoArrowText from "../../resources/info text.svg"
 import WelcomeInput from "./_WelcomeInput"
 import { useRef, useState } from "react";
 import axios from "axios"
-
 import "../../styles/joinPage.css"
 
-
+// Fake server requests to wake up servers from hibernation 
+import {io} from 'socket.io-client';
+const fake_socket = io(process.env.REACT_APP_SOCKET_SERVER);
+const fake_server = fetch(process.env.REACT_APP_GET_USER_API_URL);
 
 const JoinPage = () => {
     const avatarList = ["bird_main.webp", "bird_girl.webp", "bird_glasses.webp", 
