@@ -6,10 +6,10 @@ import MessagingComponent from './MessageRoom Components/messageRoomComponent.js
 import "../../styles/chatRoomPage.css"
 
 import {io} from 'socket.io-client';
-const socket = io('http://localhost:5050');
+const socket = io(process.env.REACT_APP_SOCKET_SERVER || 'http://localhost:5050');
 
 const ChatPage = () =>{
-    
+
     const [User, setUser] = useState();
     const [chatRoomList, setChatRoomList] = useState();
     const [profileMessageSelected, setProfileMessageSelected] = useState();
@@ -25,6 +25,18 @@ const ChatPage = () =>{
         let roomID = profileMessageSelected;
         
         socket.emit("send_message", from, time, text, roomID);
+
+        delete from.id;
+        // Display Self message
+        let tempChatRoomList = [...chatRoomList]
+        for(let chatRoom of tempChatRoomList){
+            if(chatRoom._id !== profileMessageSelected) continue;
+            
+            chatRoom.messages.push({from, time, text});
+            break;
+        }
+
+        setChatRoomList([...chatRoomList]);
     }
 
     const joinRoomSocket = (chatRoomIDList) => {
