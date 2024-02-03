@@ -9,6 +9,7 @@ import {io} from 'socket.io-client';
 const socket = io('http://localhost:5050');
 
 const ChatPage = () =>{
+    
     const [User, setUser] = useState();
     const [chatRoomList, setChatRoomList] = useState();
     const [profileMessageSelected, setProfileMessageSelected] = useState();
