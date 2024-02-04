@@ -31,6 +31,8 @@ const JoinPage = () => {
         // Fake server requests to wake up servers from hibernation 
         fetch(process.env.REACT_APP_WAKEUP_URL);
         io(process.env.REACT_APP_SOCKET_SERVER);
+        console.log(LOGIN_API_URL)
+        console.log(SIGNUP_API_URL)
     },[])
     const loginFormSubmit = (e) =>{
         setIsLoading(true);
