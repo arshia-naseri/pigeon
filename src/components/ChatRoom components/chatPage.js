@@ -6,7 +6,7 @@ import MessagingComponent from './MessageRoom Components/messageRoomComponent.js
 import "../../styles/chatRoomPage.css"
 
 import {io} from 'socket.io-client';
-const socket = io(process.env.REACT_APP_SOCKET_SERVER || 'http://localhost:5050');
+const socket = io(process.env.REACT_APP_SOCKET_SERVER);
 
 const ChatPage = () =>{
 
@@ -16,8 +16,8 @@ const ChatPage = () =>{
 
     const [showMembersList, setShowMembersList] = useState(false);
 
-    const GET_USER_API_URL = process.env.REACT_APP_GET_USER_API_URL || "http://localhost:5040/getUser";
-    const GET_USER_CHATROOM_LIST_API_URL = process.env.REACT_APP_GET_USER_CHATROOM_LIST_API_URL || "http://localhost:5040/getUserChatRoomList";
+    const GET_USER_API_URL = process.env.REACT_APP_GET_USER_API_URL;
+    const GET_USER_CHATROOM_LIST_API_URL = process.env.REACT_APP_GET_USER_CHATROOM_LIST_API_URL;
     
     const sendMessage = (text) => {
         let from = {id:User._id, name: User.name, username: User.username, avatarPic: User.avatarPic};

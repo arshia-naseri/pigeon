@@ -3,14 +3,13 @@ import joinLogo from "../../resources/Avatars/bird_main.webp"
 import imgInfoArrowText from "../../resources/info text.svg"
 
 import WelcomeInput from "./_WelcomeInput"
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import {io} from 'socket.io-client';
 import axios from "axios"
 import "../../styles/joinPage.css"
 
-// Fake server requests to wake up servers from hibernation 
-import {io} from 'socket.io-client';
-const fake_socket = io(process.env.REACT_APP_SOCKET_SERVER);
-const fake_server = fetch(process.env.REACT_APP_GET_USER_API_URL);
+
+
 
 const JoinPage = () => {
     const avatarList = ["bird_main.webp", "bird_girl.webp", "bird_glasses.webp", 
@@ -22,13 +21,17 @@ const JoinPage = () => {
     const avatarListContainer = useRef();
     const [isLoading, setIsLoading] = useState(false)
     const [userAvatar,setUserAvatar] = useState("bird_main.webp");
-    const LOGIN_API_URL = process.env.REACT_APP_LOGIN_API_URL || "http://localhost:5040/login";
-    const SIGNUP_API_URL = process.env.REACT_APP_SIGNUP_API_URL || "http://localhost:5040/signup";
+    const LOGIN_API_URL = process.env.REACT_APP_LOGIN_API_URL;
+    const SIGNUP_API_URL = process.env.REACT_APP_SIGNUP_API_URL;
 
     const panelContainer = useRef();
     const navigate = useNavigate();
     
-    
+    useEffect(()=>{
+        // Fake server requests to wake up servers from hibernation 
+        fetch(process.env.REACT_APP_WAKEUP_URL);
+        io(process.env.REACT_APP_SOCKET_SERVER);
+    },[])
     const loginFormSubmit = (e) =>{
         setIsLoading(true);
         e.preventDefault();
@@ -127,7 +130,7 @@ const JoinPage = () => {
     const goToAvatarPanel = (e) =>{
         panelContainer.current.style.transform = "translateX(-200%)";
     }
-
+    
     return (
         <>
             <section className="welcomeBg">
