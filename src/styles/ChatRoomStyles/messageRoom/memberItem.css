@@ -1,11 +1,17 @@
 :root{
-    --size--messageRoom--memberPic: 2.5rem;
+    --size--messageRoom--memberPic: 4rem;
+    --clr--add--friend: 211,253,230;
 }
 
 .memberItemSection{
+    display: inline-flex;
+    align-items: center;
+}
+
+.memberItemInfo{
     width: fit-content;
     display: flex; align-items: center;
-    gap: 0.1rem;
+    gap: 1rem;
     position: relative;
 }
 
@@ -23,4 +29,22 @@
 .memberLabelSection .memberName{
     font-weight: bold;
     font-size: 1rem;
+}
+
+.btnMemberAction{
+    background-color: rgba(0,0,0,0);
+    border: solid 1px rgba(0, 0, 0, .4);
+    border-radius: 15px;
+    margin-left: auto; margin-right: 1rem;
+    width: 7rem;height: fit-content;
+    padding: .5rem .7rem;
+    font-weight: 600;
+}
+
+.btnMemberAction[data-btn-text="+Add Friend"]{
+    background-color: rgb(var(--clr--add--friend));
+}
+
+.btnMemberAction[data-btn-text="+Add Friend"]:hover{
+    background-color: rgb(185, 226, 204);
 }

@@ -1,77 +1,81 @@
-:root{
-    --size--chatRoom--UserActionBtn: 35px;
+:root {
+  --size--chatRoom--UserActionBtn: 35px;
 }
 
-#topMenuContainer{
-    width: 100%; 
-    height: var(--height--chatRoom--topMenu);
-    background-color: var(--clr--chatRoom--primary--dark);
-    position: relative;
-    display: inline-flex; 
+#topMenuContainer {
+  width: 100%;
+  height: var(--height--chatRoom--topMenu);
+  background-color: var(--clr--chatRoom--primary--dark);
+  position: relative;
+  display: inline-flex;
 }
 
-#mainUserProfilePicContainer{
-    width: 4rem; height: 4rem;
-    min-width: 4rem;
-    margin-left: 0.7rem;
+#mainUserProfilePicContainer {
+  width: 4rem;
+  height: 4rem;
+  min-width: 4rem;
+  margin-left: 0.7rem;
 }
 
-#MainUsernameSection{
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    margin: 0; padding: 0;
-    margin-left: 1rem;
-    color: white;
-    width:10rem;
+#MainUsernameSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-left: 1rem;
+  color: white;
+  width: 10rem;
 }
 
 /* User's Name */
-#MainUsernameSection p:first-child{
-    margin: 0;
-    font-size: 2rem;
-    font-weight: bold;
-    position: relative;
+#MainUsernameSection p:first-child {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
 }
 
-#MainUsernameSection p:last-child{
-    margin: 0;
-    font-size: 1rem;
+#MainUsernameSection p:last-child {
+  margin: 0;
+  font-size: 1rem;
 }
 
-#UserActionSection{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.7rem;
-    margin-left: auto; margin-right: 0.5rem;
+#UserActionSection {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  margin-left: auto;
+  margin-right: 0.5rem;
 }
 
-.userActionButtons{
-    border: none; 
-    background-color: var(--clr--chatRoom--primary);
-    border-radius: 50%;
-    width: var(--size--chatRoom--UserActionBtn); height: var(--size--chatRoom--UserActionBtn);
+.userActionButtons {
+  border: none;
+  background-color: var(--clr--chatRoom--primary);
+  border-radius: 50%;
+  width: var(--size--chatRoom--UserActionBtn);
+  height: var(--size--chatRoom--UserActionBtn);
 
-    background-repeat: no-repeat;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.userActionButtons:hover{
-    background-color: rgb(158, 172, 213);
+.userActionButtons:hover {
+  background-color: rgb(158, 172, 213);
 }
 
-#btnSettings{
-    background-image: url('../../../resources/settings.png');
-    background-size: 70%;
+#btnSettings {
+  background-image: url("../../../resources/settings.png");
+  background-size: 70%;
 }
 
-#btnVideoCall{
-    background-image: url('../../../resources/video-call.png');
-    background-size: 100%;
+#btnContacts {
+  background-image: url("../../../resources/contacts.png");
+  background-size: 70%;
 }
 
-#btnNewChat{
-    background-image: url('../../../resources/new-message.png');
-    background-size: 70%;
+#btnNewChat {
+  background-image: url("../../../resources/new-message.png");
+  background-size: 70%;
 }

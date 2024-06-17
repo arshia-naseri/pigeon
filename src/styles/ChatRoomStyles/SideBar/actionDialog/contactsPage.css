@@ -1,0 +1,30 @@
+.primaryButton {
+  background-color: rgb(38, 43, 73);
+  color: white;
+  border: solid 1px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 0.4rem 1rem;
+}
+
+.primaryButton:hover {
+  background-color: rgb(54, 60, 94);
+}
+
+#contactsTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#contactsTitle p {
+  display: inline;
+  font-size: 0.8rem;
+}
+
+#contactsHeader {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#btnFindFriends {
+}

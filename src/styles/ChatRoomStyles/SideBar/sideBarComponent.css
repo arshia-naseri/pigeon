@@ -1,8 +1,10 @@
 @import url('./sideBarTopMenu.css');
 #sideBarComponentContainer{
+    position: relative;
     width: 25rem; height: 100%;
     background-color: var(--clr--chatRoom--primary);
     border-right: solid 2px rgba(0,0,0,.2);
+    /* z-index: -1; */
 }
 
 /* Message Profile */

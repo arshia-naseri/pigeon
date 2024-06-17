@@ -1,0 +1,92 @@
+:root{
+    --clr--add--member: 175,191,239;
+    --clr--leave--park: 237,175,175;
+    --gap--member--sections: 2rem;
+}
+
+#btnMessageRoomMore{
+    position: absolute;
+    color: white; font-size: 3rem;
+    top: 0;
+    right: 1rem;
+}
+
+#MessageRoomMoreDialogSection{
+    position: absolute;
+    margin: 0; padding: 0;
+    width: 100vw; height: 100vh;
+    left: 0%; top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 11;
+
+}
+
+#MessageRoomMoreContainer{
+    width: 30rem; height: 85%;
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #E9EBF8;
+    border-radius: 15px;
+
+    padding: 1rem 1.5rem;
+}
+
+#MoreContainerExit{
+    margin-left: auto;
+    font-size: 1.7rem;
+}
+
+#groupActionBtnSection{
+    display: inline-flex;
+    margin-top: 2rem;
+    margin-left: auto; margin-right: auto;
+    gap: 2rem;
+}
+
+#groupActionBtnSection button{
+    border: solid 1px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+}
+
+#groupActionBtnSection #btnAddMember{
+    background-color: rgb(var(--clr--add--member));
+}
+
+#groupActionBtnSection #btnLeavePark{
+    background-color: rgb(var(--clr--leave--park));
+}
+/* Hover Color */
+#groupActionBtnSection #btnAddMember:hover{
+    background-color: rgba(var(--clr--add--member), .8);
+}
+
+#groupActionBtnSection #btnLeavePark:hover{
+    background-color: rgba(var(--clr--leave--park), .8);
+}
+
+
+#membersSection{
+    margin-top: 2rem; margin-left: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#membersTitle{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#membersListContainer{
+    margin-top: 1rem;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    padding: .5rem;
+    gap: var(--gap--member--sections);
+}
