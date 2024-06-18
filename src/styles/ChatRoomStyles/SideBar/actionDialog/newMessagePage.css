@@ -1,28 +1,22 @@
-[data-new-message] {
+[data-new-message-modal] {
   width: 30rem;
   background-color: #e9ebf8;
   border-radius: 15px;
   padding: 1rem 1.5rem;
 }
 
-[data-new-message] section {
+[data-new-message-modal] > section {
   width: 100%;
   display: inline-flex;
   flex-direction: column;
-  background-color: red;
 }
 
-.ContainerExit {
+[data-new-message-modal] .btnExitModal {
   margin-left: auto;
   font-size: 1.7rem;
 }
 
-#newMessagePanelContainer {
-  width: 30rem;
-  /* height: 50%; */
-}
-
-#actionButtons {
+[data-new-message-modal] .actionButtons {
   width: 60%;
   min-width: 10rem;
   display: flex;
@@ -34,7 +28,7 @@
   margin-bottom: 1rem;
 }
 
-#actionButtons button {
+[data-new-message-modal] .actionButtons button {
   border: solid 1px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   font-weight: bold;
@@ -44,6 +38,6 @@
   background-color: rgb(175, 191, 239);
 }
 
-#actionButtons button:hover {
+[data-new-message-modal] .actionButtons button:hover {
   background-color: rgba(175, 191, 239, 0.8);
 }

@@ -1,30 +1,60 @@
-.primaryButton {
-  background-color: rgb(38, 43, 73);
-  color: white;
-  border: solid 1px rgba(0, 0, 0, 0.4);
+.AllContactsContainer {
+  position: relative;
+  overflow: scroll;
+  height: 100%;
+  background-color: red;
+}
+
+[data-contacts-modal] {
+  position: relative;
+  width: 30rem;
+  background-color: #e9ebf8;
   border-radius: 15px;
-  padding: 0.4rem 1rem;
+  padding: 1rem 1.5rem;
+  height: min-content;
+  max-height: 30vh;
+  overflow: hidden;
 }
 
-.primaryButton:hover {
-  background-color: rgb(54, 60, 94);
+[data-contacts-modal] > section {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
 }
 
-#contactsTitle {
-  font-size: 1.3rem;
-  font-weight: bold;
+[data-contacts-modal] .btnExitModal {
+  margin-left: auto;
+  font-size: 1.7rem;
 }
 
-#contactsTitle p {
-  display: inline;
-  font-size: 0.8rem;
-}
-
-#contactsHeader {
-  margin-top: 2rem;
+[data-contacts-modal] header {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-#btnFindFriends {
+[data-contacts-modal] .ModalTitle {
+  gap: 5px;
+  display: flex;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+[data-contacts-modal] .ModalTitle > div {
+  font-weight: normal;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data-contacts-modal] .btnFindFriends {
+  background-color: rgb(38, 43, 73);
+  color: whitesmoke;
+  border: none;
+  /* height: 0.1rem; */
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.2rem;
+  font-size: 0.7rem;
 }

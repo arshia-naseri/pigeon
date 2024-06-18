@@ -1,18 +1,26 @@
 import { useState, useRef } from "react";
 import ProfilePicComponent from "../../profilePicComponent";
-// import NewMessagePage from "./Action Button Componenets/newMessagePage";
-// import ContactsPage from "./Action Button Componenets/contactsPage";
 
 import "../../../styles/ChatRoomStyles/SideBar/actionDialog/newMessagePage.css";
+import "../../../styles/ChatRoomStyles/SideBar/actionDialog/contactsPage.css";
 
 const SideBarTopMenu = ({ User, contacts, setContacts }) => {
-  const newMessageDialog = document.querySelector("[data-new-message]");
+  const newMessageModal = useRef();
+  const contactsModal = useRef();
 
-  const openNewMessageDialog = () => {
-    newMessageDialog.showModal();
+  const [contactsModalStat, setContactsModalStat] = useState("Default");
+
+  const openNewMessageModal = () => {
+    newMessageModal.current.showModal();
   };
-  const closeNewMessageDialog = () => {
-    newMessageDialog.close();
+  const closeNewMessageModal = () => {
+    newMessageModal.current.close();
+  };
+  const openContactsModal = () => {
+    contactsModal.current.showModal();
+  };
+  const closeModalModal = () => {
+    contactsModal.current.close();
   };
 
   const backDropClicked = (e) => {
@@ -28,6 +36,10 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
     }
   };
 
+  while (contacts === undefined) {
+    return <></>;
+  }
+  console.log(contacts);
   return (
     <>
       {/* Top Menu */}
@@ -52,27 +64,33 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
             title="Contacts"
             className="userActionButtons mouseCursorHoverPointer"
             id="btnContacts"
+            onClick={() => openContactsModal()}
           />
           <button
             title="New Message"
             className="userActionButtons mouseCursorHoverPointer"
             id="btnNewChat"
-            onClick={() => openNewMessageDialog()}
+            onClick={() => openNewMessageModal()}
           />
         </section>
       </nav>
 
       {/* Modals for popup*/}
-      <dialog data-modal data-new-message onClick={backDropClicked}>
+      <dialog
+        data-modal
+        data-new-message-modal
+        ref={newMessageModal}
+        onClick={backDropClicked}
+      >
         <section>
           <div
-            className="ContainerExit mouseCursorHoverPointer"
-            onClick={() => closeNewMessageDialog()}
+            className="btnExitModal mouseCursorHoverPointer"
+            onClick={() => closeNewMessageModal()}
           >
             X
           </div>
 
-          <section id="actionButtons">
+          <section className="actionButtons">
             <button className="mouseCursorHoverPointer">
               Message a Pigeon
             </button>
@@ -83,25 +101,47 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
         </section>
       </dialog>
 
-      {/* <dialog data-modal data-newMessage>
+      <dialog
+        data-modal
+        data-contacts-modal
+        ref={contactsModal}
+        onClick={backDropClicked}
+      >
         <section>
           <div
-            className="ContainerExit mouseCursorHoverPointer"
-            onClick={() => closeNewMessageDialog()}
+            className="btnExitModal mouseCursorHoverPointer"
+            onClick={() => closeModalModal()}
           >
             X
           </div>
-
-          <section id="actionButtons">
-            <button className="mouseCursorHoverPointer">
-              Message a Pigeon
-            </button>
-            <button className="mouseCursorHoverPointer">
-              Create a new Park
-            </button>
-          </section>
+          <header>
+            <div className="ModalTitle">
+              Flock<div>(Contacts)</div>
+            </div>
+            {contactsModalStat === "Default" && (
+              <button className="btnFindFriends">+ Find Friends</button>
+            )}
+          </header>
+          <main className="AllContactsContainer">
+            {contacts.map((contact, index) => {
+              return (
+                <section className="ContactBlock" key={index}>
+                  <section className="ContactContainer">
+                    <ProfilePicComponent avatarPic={contact.avatarPic} />
+                    <section className="ContactInfo">
+                      <div>{contact.name}</div>
+                      <div>@{contact.username}</div>
+                    </section>
+                  </section>
+                  {contactsModalStat === "Default" && (
+                    <button>Send a Hi!</button>
+                  )}
+                </section>
+              );
+            })}
+          </main>
         </section>
-      </dialog> */}
+      </dialog>
     </>
   );
 };
