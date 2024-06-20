@@ -14,6 +14,7 @@
   height: min-content;
   max-height: 30vh;
   overflow: hidden;
+  /* empty  */
 }
 
 [data-contacts-modal] > section {
