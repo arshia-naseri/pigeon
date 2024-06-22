@@ -1,26 +1,34 @@
-.AllContactsContainer {
-  position: relative;
-  overflow: scroll;
-  height: 100%;
-  background-color: red;
+:root {
+  --size--conatctsModal--Pic: 4rem;
+  --distance--conatcts--list: 2rem;
 }
-
 [data-contacts-modal] {
   position: relative;
+
   width: 30rem;
   background-color: #e9ebf8;
   border-radius: 15px;
   padding: 1rem 1.5rem;
-  height: min-content;
-  max-height: 30vh;
-  overflow: hidden;
-  /* empty  */
+  max-height: 70vh;
+  height: fit-content;
 }
 
 [data-contacts-modal] > section {
+  position: relative;
   width: 100%;
   display: inline-flex;
   flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.AllContactsContainer {
+  overflow-y: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--distance--conatcts--list);
 }
 
 [data-contacts-modal] .btnExitModal {
@@ -30,7 +38,7 @@
 
 [data-contacts-modal] header {
   margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,11 +59,65 @@
 }
 
 [data-contacts-modal] .btnFindFriends {
-  background-color: rgb(38, 43, 73);
+  background-color: hsl(231, 32%, 22%);
   color: whitesmoke;
   border: none;
-  /* height: 0.1rem; */
   padding: 0.5rem 1.5rem;
   border-radius: 1.2rem;
   font-size: 0.7rem;
+}
+
+[data-contacts-modal] .btnFindFriends:hover {
+  background-color: hsl(231, 32%, 30%);
+}
+
+.ContactContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ContactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ContactInfo div:nth-child(1) {
+  font-size: 1.2rem;
+}
+
+.ContactInfo div:nth-child(2) {
+  font-size: 0.7rem;
+}
+
+.ContactBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ContactsProfilePic {
+  width: var(--size--conatctsModal--Pic) !important;
+  min-width: var(--size--conatctsModal--Pic) !important;
+  height: var(--size--conatctsModal--Pic) !important;
+}
+
+.ContactBlock button {
+  border: none;
+  border-radius: 1rem;
+  height: fit-content;
+  width: fit-content;
+  font: 1rem;
+  font-weight: bold;
+  border: 0.7px solid black;
+  padding: 0.5rem 1.3rem;
+}
+
+[data-contacts-stat="Default"] {
+  background-color: #afbfed;
+}
+
+[data-contacts-stat="Default"]:hover {
+  background-color: hsl(225, 63%, 75%);
 }

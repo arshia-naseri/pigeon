@@ -127,14 +127,24 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
               return (
                 <section className="ContactBlock" key={index}>
                   <section className="ContactContainer">
-                    <ProfilePicComponent avatarPic={contact.avatarPic} />
+                    <ProfilePicComponent
+                      avatarPic={contact.avatarPic}
+                      classList={"ContactsProfilePic"}
+                    />
                     <section className="ContactInfo">
-                      <div>{contact.name}</div>
+                      <div>
+                        <strong>{contact.name}</strong>
+                      </div>
                       <div>@{contact.username}</div>
                     </section>
                   </section>
                   {contactsModalStat === "Default" && (
-                    <button>Send a Hi!</button>
+                    <button
+                      className="mouseCursorHoverPointer"
+                      data-contacts-stat="Default"
+                    >
+                      Send a Hi!
+                    </button>
                   )}
                 </section>
               );
