@@ -75,7 +75,7 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
         </section>
       </nav>
 
-      {/* Modals for popup*/}
+      {/* New Message Modal*/}
       <dialog
         data-modal
         data-new-message-modal
@@ -101,6 +101,7 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
         </section>
       </dialog>
 
+      {/* Contacts Modal*/}
       <dialog
         data-modal
         data-contacts-modal
