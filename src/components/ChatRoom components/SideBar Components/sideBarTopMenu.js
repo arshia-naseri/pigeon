@@ -1,39 +1,18 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import ProfilePicComponent from "../../profilePicComponent";
 
-import "../../../styles/ChatRoomStyles/SideBar/actionDialog/newMessagePage.css";
-import "../../../styles/ChatRoomStyles/SideBar/actionDialog/contactsPage.css";
+import ModalPages from "./modalPages/modalPages";
 
 const SideBarTopMenu = ({ User, contacts, setContacts }) => {
-  const newMessageModal = useRef();
-  const contactsModal = useRef();
-
   const [contactsModalStat, setContactsModalStat] = useState("Default");
-
-  const openNewMessageModal = () => {
-    newMessageModal.current.showModal();
-  };
-  const closeNewMessageModal = () => {
-    newMessageModal.current.close();
-  };
-  const openContactsModal = () => {
-    contactsModal.current.showModal();
-  };
-  const closeModalModal = () => {
-    contactsModal.current.close();
+  const openModal = (modalDataName) => {
+    const targetModal = document.querySelector(`[${modalDataName}]`);
+    targetModal.showModal();
   };
 
-  const backDropClicked = (e) => {
-    const clickedModal = e.currentTarget;
-    const dimentions = clickedModal.getBoundingClientRect();
-    if (
-      e.clientX < dimentions.left ||
-      e.clientX > dimentions.right ||
-      e.clientY < dimentions.top ||
-      e.clientY > dimentions.bottom
-    ) {
-      clickedModal.close();
-    }
+  const closeModal = (modalDataName) => {
+    const targetModal = document.querySelector(`[${modalDataName}]`);
+    targetModal.close();
   };
 
   while (contacts === undefined) {
@@ -64,95 +43,25 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
             title="Contacts"
             className="userActionButtons mouseCursorHoverPointer"
             id="btnContacts"
-            onClick={() => openContactsModal()}
+            onClick={() => openModal("data-contacts-modal")}
           />
           <button
             title="New Message"
             className="userActionButtons mouseCursorHoverPointer"
             id="btnNewChat"
-            onClick={() => openNewMessageModal()}
+            onClick={() => openModal("data-new-message-modal")}
           />
         </section>
       </nav>
 
-      {/* New Message Modal*/}
-      <dialog
-        data-modal
-        data-new-message-modal
-        ref={newMessageModal}
-        onClick={backDropClicked}
-      >
-        <section>
-          <div
-            className="btnExitModal mouseCursorHoverPointer"
-            onClick={() => closeNewMessageModal()}
-          >
-            X
-          </div>
-
-          <section className="actionButtons">
-            <button className="mouseCursorHoverPointer">
-              Message a Pigeon
-            </button>
-            <button className="mouseCursorHoverPointer">
-              Create a new Park
-            </button>
-          </section>
-        </section>
-      </dialog>
-
-      {/* Contacts Modal*/}
-      <dialog
-        data-modal
-        data-contacts-modal
-        ref={contactsModal}
-        onClick={backDropClicked}
-      >
-        <section>
-          <div
-            className="btnExitModal mouseCursorHoverPointer"
-            onClick={() => closeModalModal()}
-          >
-            X
-          </div>
-          <header>
-            <div className="ModalTitle">
-              Flock<div>(Contacts)</div>
-            </div>
-            {contactsModalStat === "Default" && (
-              <button className="btnFindFriends">+ Find Friends</button>
-            )}
-          </header>
-          <main className="AllContactsContainer">
-            {contacts.map((contact, index) => {
-              return (
-                <section className="ContactBlock" key={index}>
-                  <section className="ContactContainer">
-                    <ProfilePicComponent
-                      avatarPic={contact.avatarPic}
-                      classList={"ContactsProfilePic"}
-                    />
-                    <section className="ContactInfo">
-                      <div>
-                        <strong>{contact.name}</strong>
-                      </div>
-                      <div>@{contact.username}</div>
-                    </section>
-                  </section>
-                  {contactsModalStat === "Default" && (
-                    <button
-                      className="mouseCursorHoverPointer"
-                      data-contacts-stat="Default"
-                    >
-                      Send a Hi!
-                    </button>
-                  )}
-                </section>
-              );
-            })}
-          </main>
-        </section>
-      </dialog>
+      {/* Modals*/}
+      <ModalPages
+        openModal={openModal}
+        closeModal={closeModal}
+        User={User}
+        contacts={contacts}
+        contactsModalStat={contactsModalStat}
+      />
     </>
   );
 };
