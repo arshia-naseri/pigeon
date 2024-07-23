@@ -1,4 +1,4 @@
-import "../../../../styles/ChatRoomStyles/SideBar/actionDialog/newMessagePage.css";
+import "../../../../styles/ChatRoomStyles/SideBar/ModalPages/newMessagePage.css";
 
 const NewMessageModal = ({ backDropClicked, openModal, closeModal }) => {
   return (

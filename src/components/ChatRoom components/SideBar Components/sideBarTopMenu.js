@@ -38,6 +38,7 @@ const SideBarTopMenu = ({ User, contacts, setContacts }) => {
             title="Settings"
             className="userActionButtons mouseCursorHoverPointer"
             id="btnSettings"
+            onClick={() => openModal("data-settings-modal")}
           />
           <button
             title="Contacts"

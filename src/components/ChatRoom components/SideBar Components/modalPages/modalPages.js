@@ -1,5 +1,6 @@
 import NewMessageModal from "./_newMessageModal";
 import ContactsPage from "./_contactsPage";
+import SettingsPage from "./_settingsPage";
 
 const ModalPages = ({
   openModal,
@@ -34,6 +35,12 @@ const ModalPages = ({
         closeModal={closeModal}
         contacts={contacts}
         contactsModalStat={contactsModalStat}
+      />
+
+      <SettingsPage
+        backDropClicked={backDropClicked}
+        openModal={openModal}
+        closeModal={closeModal}
       />
     </>
   );

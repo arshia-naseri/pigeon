@@ -1,5 +1,5 @@
 import ProfilePicComponent from "../../../profilePicComponent";
-import "../../../../styles/ChatRoomStyles/SideBar/actionDialog/contactsPage.css";
+import "../../../../styles/ChatRoomStyles/SideBar/ModalPages/contactsPage.css";
 
 const ContactsPage = ({
   backDropClicked,
